@@ -89,6 +89,14 @@ so spaces aren't unavailable prematurely,
 I can select a date until a request for that date is confirmed.
 ```
 
+### MVP
+
+1. User  can list a space
+2. User can view a space
+3. Spaces are stored
+
+
+
 <!-- ### Nice-to-haves
 
 - Users should receive an email whenever one of the following happens:
