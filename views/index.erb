@@ -1,0 +1,27 @@
+<head>
+  <style>
+    body { text-align: center; 
+   color: #222831;
+   Font-size: 25px;
+   font-family: tahoma;
+   background-color: #ffe8df;
+    
+    }
+    ul { list-style-type:none; }
+  </style>
+    
+<body>  
+  <h1> MakersBnB </h1>
+  <hr>
+  <h2> book a space</h2><br>
+  <form action='/add_space' method='post'>
+    <input type='text' name='space_name' placeholder="please enter space.."><br><br>
+    <input type='submit' value='Submit'><br><br>
+</form>
+
+<ul>
+  <% @spaces.each do |space| %>
+  <li> <%= space %> </li>
+  <% end %>
+</ul>
+</body>
