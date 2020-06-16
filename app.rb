@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 require 'sinatra/base'
+require './lib/makers_bnb'
 
-class MakersBnB < Sinatra::Base
+class ProjectBnB < Sinatra::Base
   enable :sessions
 
   # get '/' do
