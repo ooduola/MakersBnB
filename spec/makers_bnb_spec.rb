@@ -3,7 +3,7 @@ require 'makers_BnB'
 describe 'makersBnB' do
   let(:bnb) { MakersBnB.new }
 
-  it 'is a class' do
+  it 'is an instance of MakersBnB' do
     expect(bnb).to be_a_kind_of MakersBnB
   end
 
@@ -12,7 +12,7 @@ describe 'makersBnB' do
   end
 
   it '.all returns a list of names' do
-    expect(bnb.all).to include 'light and airy loft'
+    expect(bnb.all).to include('light and airy loft')
   end
 
   it 'responds to the method .add with one argument' do
