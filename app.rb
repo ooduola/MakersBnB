@@ -8,5 +8,14 @@ class MakersBnB < Sinatra::Base
     erb :index
   end
 
+  post '/add_space' do
+    session[:name] = params[:space_name]
+    # redirect '/'
+  end
+
+  # get '/' do
+  #   erb :index
+  # end
+
   run! if app_file == $PROGRAM_NAME
 end

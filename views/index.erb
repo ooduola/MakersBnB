@@ -1,7 +1,10 @@
+ <form action='/add_space' method='post'>
+  <input type='text' name='space_name'>
+  <input type='submit' value='Submit'>
+</form>
+
 <ul>
-<% @spaces.each do |space| %>
-<li>
-  <%= space %>
-  </li>
-<% end %>
+  <% @spaces.each do |space| %>
+  <li> <%= space %> </li>
+  <% end %>
 </ul>
