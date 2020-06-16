@@ -4,11 +4,7 @@ require 'makers_BnB'
 require 'database_helper'
 
 describe 'makersBnB' do
-  let(:bnb) { MakersBnB.new }
-
-  it 'is an instance of MakersBnB' do
-    expect(bnb).to be_a_kind_of MakersBnB
-  end
+  let(:bnb) { MakersBnB }
 
   it 'responds to method .all' do
     expect(bnb).to respond_to :all

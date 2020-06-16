@@ -5,5 +5,5 @@ def clear_table
 end
 
 def add_test_data
-  MakersBnB.new.add('light and airy loft')
+  MakersBnB.add('light and airy loft')
 end
