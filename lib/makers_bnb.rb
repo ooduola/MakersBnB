@@ -9,7 +9,7 @@ class MakersBnB
     @mvplist = ['light and airy loft', 'my mums old room', 'sunny basement']
   end
 
-  def all
+  def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
@@ -22,7 +22,7 @@ class MakersBnB
     end
   end
 
-  def add(name)
+  def self.add(name)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
