@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pg'
 require './lib/space.rb'
 
@@ -8,22 +10,19 @@ class MakersBnB
   end
 
   def all
-    # @mvplist
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-    result = connection.exec("SELECT * FROM spaces")
+    result = connection.exec('SELECT * FROM spaces')
     result.map do |space|
-    x = Space.new(name: space['name'])
-    x.name
+      x = Space.new(name: space['name'])
+      x.name
     end
   end
 
-
   def add(name)
-    # @mvplist.push(name)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
@@ -31,5 +30,4 @@ class MakersBnB
     end
     connection.exec("INSERT INTO spaces(name) VALUES ('#{name}');")
   end
-
 end

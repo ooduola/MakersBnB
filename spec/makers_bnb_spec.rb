@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'makers_BnB'
+require 'database_helper'
 
 describe 'makersBnB' do
   let(:bnb) { MakersBnB.new }
@@ -12,6 +15,7 @@ describe 'makersBnB' do
   end
 
   it '.all returns a list of names' do
+    add_test_data
     expect(bnb.all).to include('light and airy loft')
   end
 
