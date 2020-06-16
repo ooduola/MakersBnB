@@ -1,0 +1,4 @@
+.last_run.json
+coverage/.resultset.json
+.resultset.json.lock
+coverage/index.html

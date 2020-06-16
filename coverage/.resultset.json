@@ -1,24 +1,11 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ola/Projects/makers-bnb/spec/features/adding_space_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
+
           1,
           0,
           0,
           null,
-          null
-        ]
-      },
-      "/Users/ola/Projects/makers-bnb/spec/features/view_spaces_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
           1,
           1,
           null,
@@ -26,6 +13,5 @@
         ]
       }
     },
-    "timestamp": 1592314678
   }
 }
