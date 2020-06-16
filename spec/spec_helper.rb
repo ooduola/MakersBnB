@@ -15,7 +15,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-Capybara.app = MakersBnB
+# Capybara.app = MakersBnB
 
 require 'simplecov'
 require 'simplecov-console'
