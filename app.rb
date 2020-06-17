@@ -4,9 +4,17 @@ require './lib/makers_bnb'
 
 class ProjectBnB < Sinatra::Base
   enable :sessions
- 
+
   get '/sign_up' do
     erb :signup
+  end
+
+  get '/login' do
+    erb :login
+  end
+  
+  post '/' do
+   redirect '/'
   end
 
   get '/' do
