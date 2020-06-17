@@ -16,11 +16,7 @@ class MakersBnB
       connection = PG.connect(dbname: 'makers_bnb')
     end
     result = connection.exec('SELECT * FROM spaces')
-    result.map do |space|
-      x = Space.new(name: space['name'], description: space['description'], price: space['price'])
-      x.name
-      x.price
-      x.description
+    result.map do |space| Space.new(name: space['name'], description: space['description'], price: space['price'])
     end
   end
 

@@ -12,15 +12,18 @@ describe 'makersBnB' do
 
   it '.all returns a list of names' do
     add_test_data
-    expect(bnb.all).to include('light and airy loft')
+    expect(bnb.all.length).to eq(3)
+    expect(bnb.all.first.description).to eq('is light and airy')
+    expect(bnb.all.first.name).to eq('loft')
+    expect(bnb.all.first.price).to eq('20.00')
   end
 
   it 'responds to the method .add with one argument' do
-    expect(bnb).to respond_to(:add).with(1).arguments
+    expect(bnb).to respond_to(:add).with(3).arguments
   end
 
   it '.add adds a name to the mvplist' do
-    bnb.add('very comfy couch')
-    expect(bnb.all).to include 'very comfy couch'
+    bnb.add('very comfy couch', 'a couch', '20.00')
+    expect(bnb.all.first.name).to eq 'very comfy couch'
   end
 end
