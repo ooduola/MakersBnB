@@ -6,4 +6,10 @@ feature 'view spaces' do
     expect(page).to have_content('my mums old room')
     expect(page).to have_content('nice and sunny')
   end
+
+  scenario 'user can click on a space to request to book it' do
+    add_test_data
+    visit '/'
+    expect(page).to have_button('Check Availability')
+  end
 end
