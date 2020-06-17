@@ -11,7 +11,7 @@ class ProjectBnB < Sinatra::Base
   end
 
   post '/add_space' do
-    MakersBnB.add(params[:space_name])
+    MakersBnB.add(params[:space_name], params[:space_description], params[:space_price])
     redirect '/'
   end
 

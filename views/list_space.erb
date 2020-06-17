@@ -1,7 +1,11 @@
 list a space
 
-Name
-
 <form action='/add_space' method='post'>
-    <input type='text' name='space_name' placeholder="please enter space name..."
+    <label for space_name>Name:</label>
+    <input type='text' name='space_name' placeholder="Please enter space name...">
+    <label for space_description>Description:</label>
+    <input type='text' name='space_description' placeholder="Describe your space...">
+    <label for space_price>Price per night:</label>
+    <input type="number" min="0.00" max="200.00" step="0.01" name='space_price' placeholder="£">
+    <input type='submit' value='List my Space'>
   </form>
