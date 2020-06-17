@@ -5,7 +5,7 @@ class User
 attr_reader :username, :id
 
   def initialize(username)
-  @username = username
+    @username = username
   end
 
   def self.create(username, password)
