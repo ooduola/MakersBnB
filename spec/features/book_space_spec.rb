@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'book a space' do
   scenario 'user can request to book a space' do
     visit '/book_space'
@@ -8,5 +10,4 @@ feature 'book a space' do
     visit '/book_space'
     expect(page).to have_content('Select your dates')
   end
-
 end

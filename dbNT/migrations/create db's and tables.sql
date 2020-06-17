@@ -12,6 +12,7 @@ ADD COLUMN price varchar(30);
 ADD COLUMN description varchar(30);
 ALTER TABLE spaces
 
+
 \c makers_test_bnb;
 ALTER TABLE spaces
 ADD COLUMN price varchar(30);

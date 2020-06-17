@@ -21,7 +21,7 @@ class ProjectBnB < Sinatra::Base
 
   get '/book_space' do
     erb :book_space
-  end 
+  end
 
   run! if app_file == $PROGRAM_NAME
 end

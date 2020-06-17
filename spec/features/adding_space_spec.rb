@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'user can list a space' do
   scenario 'user can navigate to list a space' do
     visit '/'

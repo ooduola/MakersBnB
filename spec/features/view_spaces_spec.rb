@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'view spaces' do
   scenario 'user can view a list of spaces' do
     add_test_data
