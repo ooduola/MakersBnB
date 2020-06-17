@@ -4,7 +4,7 @@ feature 'sign up to MakersBnB' do
     visit '/sign_up'
     fill_in :username, with: 'ontest'
     fill_in :password, with: '1234'
-    click_button 'Submit'
+    click_button 'Sign Up'
     expect(page).to have_current_path('/')
   end
 end
@@ -22,7 +22,7 @@ feature 'upon signup listings page contains username' do
     visit '/sign_up'
     fill_in :username, with: 'ontest'
     fill_in :password, with: '1234'
-    click_button 'Submit'
+    click_button 'Sign Up'
     expect(page).to have_content('ontest')
   end
 end

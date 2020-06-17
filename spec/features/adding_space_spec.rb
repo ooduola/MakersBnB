@@ -3,7 +3,7 @@ feature 'add spaces' do
     visit '/sign_up'
     fill_in :username, with: 'ontest'
     fill_in :password, with: '1234'
-    click_button 'Submit'
+    click_button 'Sign Up'
 
     fill_in :space_name, with: 'very comfy couch'
     click_button 'Submit'

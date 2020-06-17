@@ -13,6 +13,10 @@ class ProjectBnB < Sinatra::Base
   get '/login' do
     erb :login
   end
+ 
+  post '/checker' do
+    
+  end
 
   post '/' do
     $user = User.create(params[:username], params[:password])

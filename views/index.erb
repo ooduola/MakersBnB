@@ -5,17 +5,17 @@
    Font-size: 25px;
    font-family: tahoma;
    background-color: #ffe8df;
-
     }
+    
     ul { list-style-type:none; }
   </style>
 
 <body>
-  <h1> <%= @user.username[:username] %> </h1> 
+
 
   <h1> MakersBnB </h1>
   <hr>
-  <h2> book a space</h2><br>
+    <h1> Hi <%= @user.username[:username] %> </h1><br>
   <form action='/add_space' method='post'>
     <input type='text' name='space_name' placeholder="please enter space.."><br><br>
     <input type='submit' value='Submit'><br><br>
