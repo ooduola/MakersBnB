@@ -6,7 +6,7 @@ require './lib/user'
 class ProjectBnB < Sinatra::Base
   enable :sessions
 
-  get '/sign_up' do
+  get '/' do
     erb :signup
   end
 
@@ -14,20 +14,28 @@ class ProjectBnB < Sinatra::Base
     erb :login
   end
 
-  post '/' do
+  post '/usercreate' do
     $user = User.create(params[:username], params[:password])
-    redirect '/'
+    redirect '/spaces'
   end
 
   post '/add_space' do
-    MakersBnB.add(params[:space_name])
-    redirect '/'
-  end
+      MakersBnB.add(params[:space_name], params[:space_description], params[:space_price])
+      redirect '/'
+    end
 
-  get '/' do
+  get '/spaces' do
     @user = $user
     @spaces = MakersBnB.all
     erb :index
+  end
+
+  get '/list_space' do
+    erb :list_space
+  end
+
+  get '/book_space' do
+    erb :book_space
   end
 
   run! if app_file == $PROGRAM_NAME
