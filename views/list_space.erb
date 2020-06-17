@@ -1,0 +1,25 @@
+<head>
+  <style>
+    body { text-align: center;
+   color: #222831;
+   Font-size: 25px;
+   font-family: tahoma;
+   background-color: #ffe8df;
+ }
+    ul { list-style-type:none; }
+  </style>
+
+<body>
+  <h1> MakersBnB </h1>
+  <h2> list a space </h2>
+
+<form action='/add_space' method='post'>
+    <label for space_name>Name:</label>
+    <input type='text' name='space_name'><br>
+    <label for space_description>Description:</label>
+    <input type='text' name='space_description'><br>
+    <label for space_price>Price per night:</label>
+    <input type="number" min="0.00" max="200.00" step="0.01" name='space_price' placeholder="£"><br>
+    <input type='submit' value='List my Space'><br>
+  </form>
+  </body>
