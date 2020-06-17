@@ -14,10 +14,12 @@ class ProjectBnB < Sinatra::Base
   end
   
   post '/' do
-   redirect '/'
+    session[:user] = User.create(params[:username], params[:password])
+    redirect '/'
   end
 
   get '/' do
+    @user = session[:user]
     @spaces = MakersBnB.all
     erb :index
   end
