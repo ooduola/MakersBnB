@@ -2,6 +2,7 @@
 require 'sinatra/base'
 require './lib/makers_bnb'
 require './lib/user'
+
 class ProjectBnB < Sinatra::Base
   enable :sessions
   get '/' do
