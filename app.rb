@@ -4,6 +4,10 @@ require './lib/makers_bnb'
 
 class ProjectBnB < Sinatra::Base
   enable :sessions
+ 
+  get '/sign_up' do
+    erb :signup
+  end
 
   get '/' do
     @spaces = MakersBnB.all
