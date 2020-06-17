@@ -2,8 +2,8 @@
 def clear_table
   conn = PG.connect(dbname: 'makers_bnb_test')
   conn.exec('TRUNCATE TABLE spaces;')
+  conn.exec('TRUNCATE TABLE users;')
 end
-
 def add_test_data
   MakersBnB.add('loft', 'is light and airy', '20.00')
   MakersBnB.add('room', 'my mums old room', '20.00')
