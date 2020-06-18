@@ -9,4 +9,10 @@ feature 'request' do
     click_button 'View Requests'
     expect(page).to have_content('hello world')
   end
+
+  scenario 'user can click space button' do
+    visit '/requests'
+    click_button 'Spaces'
+    expect(page).to have_current_path('/spaces')
+  end
 end

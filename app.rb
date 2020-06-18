@@ -31,7 +31,7 @@ class ProjectBnB < Sinatra::Base
   end
 
   get '/requests' do
-    "hello world"
+    erb :request
   end
 
   get '/list_space' do
