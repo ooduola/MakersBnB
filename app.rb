@@ -11,26 +11,38 @@ class ProjectBnB < Sinatra::Base
   end
 
   get '/login' do
-    @user = User.find(params[:username], params[:password])
     erb :login
   end
+
+  post '/logincheck' do
+    @user = User.find(params[:username])
+    redirect '/spaces'
+  end
+
+
   post '/usercreate' do
     User.create(params[:username], params[:password])
     redirect '/spaces'
   end
+
   post '/add_space' do
       MakersBnB.add(params[:space_name], params[:space_description], params[:space_price])
       redirect '/spaces'
     end
+
   get '/spaces' do
+    @user = User.find(params[:username])
     @spaces = MakersBnB.all
     erb :index
   end
+
   get '/list_space' do
     erb :list_space
   end
+
   get '/book_space' do
     erb :book_space
   end
+
   run! if app_file == $PROGRAM_NAME
 end
