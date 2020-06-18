@@ -12,11 +12,12 @@ describe 'User' do
     expect(user).to be_instance_of(User)
     expect(user.username[:username]).to eq('ontest')
   end
-  
-  # it 'to check users credentials' do
-  #   user = User.create('ontest', '1234')
-  #   expect(User.checker).to eq('true')
-  # end
-
 end
 
+describe 'Find' do
+  it 'finds the user by username' do
+    user = User.create('ontest', '1234')
+    result = User.find(:username)
+    expect(result.username).to eq('ontest')
+  end
+end
