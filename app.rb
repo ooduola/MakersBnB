@@ -32,6 +32,7 @@ class ProjectBnB < Sinatra::Base
 
   post '/check_space' do
     "hello world"
+    redirect '/book_space'
   end
 
   get '/requests' do
