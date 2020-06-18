@@ -39,6 +39,7 @@ class ProjectBnB < Sinatra::Base
   end
 
   get '/book_space' do
+    
     erb :book_space
   end
 

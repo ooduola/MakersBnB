@@ -26,5 +26,4 @@ feature 'book a space' do
     click_button 'Check Availability'
     expect(page).to have_content('loft')
   end
-
 end
