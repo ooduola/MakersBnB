@@ -24,4 +24,13 @@ feature 'view requests' do
     click_button 'Sign Up'
     expect(page).to have_button('View Requests')
   end
+
+  scenario 'button takes them to request page' do
+    visit '/'
+    fill_in :username, with: 'ontest'
+    fill_in :password, with: '1234'
+    click_button 'Sign Up'
+    click_button 'View Requests'
+    expect(page).to have_current_path('/requests')
+  end
 end
