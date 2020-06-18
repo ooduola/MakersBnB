@@ -30,6 +30,10 @@ class ProjectBnB < Sinatra::Base
     erb :index
   end
 
+  post '/check_space' do
+    "hello world"
+  end
+
   get '/requests' do
     erb :request
   end

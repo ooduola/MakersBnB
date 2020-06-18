@@ -29,8 +29,8 @@
 <ul>
   <% @spaces.each do |space| %>
   <li> <%= space.name %> <%= space.description %> <%= space.price %>
-  <form action='/book_space' method ='get'>
-    <input type='submit' value='Check Availability'>
+  <form action='/check_space' method ='post'>
+    <button name='space_name' type ='submit' value='<%= space.name %>'>Check Availability</button>
   </form>
   </li>
   <% end %>
