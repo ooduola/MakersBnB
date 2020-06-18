@@ -19,7 +19,6 @@ class ProjectBnB < Sinatra::Base
     redirect '/spaces'
   end
 
-
   post '/usercreate' do
     User.create(params[:username], params[:password])
     redirect '/spaces'
@@ -31,7 +30,7 @@ class ProjectBnB < Sinatra::Base
     end
 
   get '/spaces' do
-    @user = User.find(params[:username])
+    @user = User.find
     @spaces = MakersBnB.all
     erb :index
   end
