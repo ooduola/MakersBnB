@@ -16,4 +16,15 @@ feature 'book a space' do
     click_button 'request to book'
     expect(page).to have_current_path('/requests?start_date=&end_date=')
   end
+
+  scenario 'user can see the name of the space they want to request' do
+    add_single_test_data
+    visit '/'
+    fill_in :username, with: 'ontest'
+    fill_in :password, with: '1234'
+    click_button 'Sign Up'
+    click_button 'Check Availability'
+    expect(page).to have_content('loft')
+  end
+
 end
