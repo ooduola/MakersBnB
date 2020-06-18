@@ -15,3 +15,13 @@ feature 'view spaces' do
     expect(page).to have_button('Check Availability')
   end
 end
+
+feature 'view requests' do
+  scenario 'user can see button to take them to the requests page' do
+    visit '/'
+    fill_in :username, with: 'ontest'
+    fill_in :password, with: '1234'
+    click_button 'Sign Up'
+    expect(page).to have_button('View Requests')
+  end
+end
