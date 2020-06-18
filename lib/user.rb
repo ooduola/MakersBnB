@@ -20,13 +20,14 @@ attr_reader :username, :id, :password
     end
 
   def self.find(username)
+    return nil unless username
     if ENV['ENVIRONMENT'] == 'test'
      connection = PG.connect(dbname: 'makers_bnb_test')
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-      result = connection.query("SELECT * FROM users WHERE username = #{username};")
-      p result[0]
-      end
-      # User.new
+      result = connection.query("SELECT * FROM users WHERE #{username} IN username;")
+      user = result[0]
+    p User.new(username: user['username'])
+end
 end
