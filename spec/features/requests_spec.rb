@@ -7,7 +7,7 @@ feature 'request' do
     fill_in :password, with: '1234'
     click_button 'Sign Up'
     click_button 'View Requests'
-    expect(page).to have_content('hello world')
+    expect(page).to have_content('your requests')
   end
 
   scenario 'user can click space button' do
