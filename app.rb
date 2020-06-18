@@ -5,9 +5,11 @@ require './lib/user'
 
 class ProjectBnB < Sinatra::Base
   enable :sessions
+
   get '/' do
     erb :signup
   end
+
   get '/login' do
     @user = User.find(params[:username])
     erb :login

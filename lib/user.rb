@@ -15,16 +15,18 @@ attr_reader :username, :id
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-      connection.exec("INSERT INTO users(username, password) VALUES ('#{username}', '#{password}');")
+    connection.exec("INSERT INTO users(username, password) VALUES ('#{username}', '#{password}');")
     end
 
   def self.find(username)
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'makers_bnb_test')
+     connection = PG.connect(dbname: 'makers_bnb_test')
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-    result = connection.exec("SELECT * FROM users WHERE username = '#{username}'")
-    User.new(id: result[0]['id'], username: result[0]['username'])
-  end
-end 
+    result = connection.exec('SELECT * FROM users')
+    result.map do |result|
+    p User.new(username: result['username'], id: result['id'],)
+end
+end
+end
