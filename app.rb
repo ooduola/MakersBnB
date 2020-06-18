@@ -11,7 +11,7 @@ class ProjectBnB < Sinatra::Base
   end
 
   get '/login' do
-    @user = User.find(params[:username])
+    @user = User.find(params[:username], params[:password])
     erb :login
   end
   post '/usercreate' do

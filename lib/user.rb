@@ -2,11 +2,12 @@ require 'pg'
 
 class User
 
-attr_reader :username, :id
+attr_reader :username, :id, :password, :test
 
-  def initialize(username:, id:)
+  def initialize(username:, id:, password:)
     @username = username
     @id = id
+    @password = password
   end
 
   def self.create(username, password)
@@ -24,9 +25,11 @@ attr_reader :username, :id
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-    result = connection.exec('SELECT * FROM users')
-    result.map do |result|
-    p User.new(username: result['username'], id: result['id'],)
-end
+    p result = connection.exec("SELECT * FROM users")
+    #
+    # result.map do |x|
+    # p User.new(x[0]['username'])
+
+    # p test = User.new(result[0]['username'])
 end
 end
