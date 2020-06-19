@@ -36,6 +36,7 @@ class ProjectBnB < Sinatra::Base
   end
 
   get '/requests' do
+    @name = session[:name]
     erb :request
   end
 
