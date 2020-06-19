@@ -31,6 +31,7 @@ class ProjectBnB < Sinatra::Base
   end
 
   post '/check_space' do
+    session[:name] = params[:space_name]
     redirect '/book_space'
   end
 
@@ -43,7 +44,7 @@ class ProjectBnB < Sinatra::Base
   end
 
   get '/book_space' do
-    
+    @name = session[:name]
     erb :book_space
   end
 

@@ -8,7 +8,7 @@ feature 'book a space' do
 
   scenario 'user can see a calendar' do
     visit '/book_space'
-    expect(page).to have_content('Select your dates')
+    expect(page).to have_content('available dates')
   end
 
   scenario 'user will be routed to request page after confirmation' do
