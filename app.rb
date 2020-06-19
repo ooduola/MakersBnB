@@ -17,7 +17,7 @@ class ProjectBnB < Sinatra::Base # :nodoc:
 
   post '/logincheck' do
     session[:username] = params[:username]
-    if User.find(params[:username]) == false
+    if User.login(params[:username]) == false
       redirect '/'
     else
       redirect '/spaces'
@@ -25,7 +25,7 @@ class ProjectBnB < Sinatra::Base # :nodoc:
   end
 
   post '/usercreate' do
-    User.create(params[:username], params[:password])
+    User.sign_up(params[:username], params[:password])
     redirect '/login'
   end
 

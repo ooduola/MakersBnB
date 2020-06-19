@@ -12,7 +12,7 @@ class User # :nodoc:
     @password = password
   end
 
-  def self.create(username, password)
+  def self.sign_up(username, password)
     encrypt_password = BCrypt::Password.create(password)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
@@ -22,7 +22,7 @@ class User # :nodoc:
     connection.exec("INSERT INTO users(username, password) VALUES ('#{username}', '#{encrypt_password}');")
   end
 
-  def self.find(username)
+  def self.login(username)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
