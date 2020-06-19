@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'pg'
+require 'bcrypt'
 
-class User
-
-attr_reader :username, :id, :password
+class User # :nodoc:
+  attr_reader :username, :id, :password
 
   def initialize(username:)
     @username = username
@@ -11,22 +13,23 @@ attr_reader :username, :id, :password
   end
 
   def self.create(username, password)
+    encrypt_password = BCrypt::Password.create(password)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-    connection.exec("INSERT INTO users(username, password) VALUES ('#{username}', '#{password}');")
-    end
+    connection.exec("INSERT INTO users(username, password) VALUES ('#{username}', '#{encrypt_password}');")
+  end
 
-  def self.find(*user)
-    person = user.first
+  def self.find(username)
     if ENV['ENVIRONMENT'] == 'test'
-     connection = PG.connect(dbname: 'makers_bnb_test')
+      connection = PG.connect(dbname: 'makers_bnb_test')
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-     result = connection.exec("SELECT username FROM users WHERE username = #{person};")
-     p User.new(username: result[0]['username'])
+    result = connection.exec('SELECT username FROM users;')
+    users = result.map { |u_name| u_name['username'] }
+    users.include?(username)
   end
 end
