@@ -1,0 +1,31 @@
+<head>
+  <style>
+    body { text-align: center;
+   color: #222831;
+   Font-size: 25px;
+   font-family: tahoma;
+   background-color: #ffe8df;
+    }
+    ul { list-style-type:none; }
+  </style>
+<body>
+  <h1> MakersBnB </h1>
+  <hr>
+  <h2> You have selected: <%= @name %> </h2><br>
+  <h3> Select your dates below: </h3>
+
+
+  <form action='/requests' method='get'> 
+    <p>
+    Start date: <input type='date' name='start_date' min='2020-07-19'
+    max ='2020-09-11' step='7'>
+    </p>
+    <p>
+    End date: <input type='date' name='end_date' min='2020-07-26'
+    max ='2020-09-18' step='7'>
+    </p>
+    <p>
+    <input type='submit' value='request to book'>
+    </p>
+  </form>
+</body>

@@ -20,7 +20,7 @@ class ProjectBnB < Sinatra::Base # :nodoc:
     if User.login(params[:username]) == false
       redirect '/'
     else
-      redirect '/spaces'
+      redirect '/homepage'
     end
   end
 
@@ -31,13 +31,23 @@ class ProjectBnB < Sinatra::Base # :nodoc:
 
   post '/add_space' do
     MakersBnB.add(params[:space_name], params[:space_description], params[:space_price])
-    redirect '/spaces'
+    redirect '/homepage'
   end
 
-  get '/spaces' do
+  get '/homepage' do
     @user = session[:username]
     @spaces = MakersBnB.all
-    erb :index
+    erb :homepage
+  end
+
+  post '/check_availability' do
+    session[:name] = params[:space_name]
+    redirect '/book_space'
+  end
+
+  get '/requests' do
+    @name = session[:name]
+    erb :requests
   end
 
   get '/list_space' do
@@ -45,6 +55,7 @@ class ProjectBnB < Sinatra::Base # :nodoc:
   end
 
   get '/book_space' do
+    @name = session[:name]
     erb :book_space
   end
 

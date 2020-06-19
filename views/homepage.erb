@@ -1,0 +1,44 @@
+<head>
+  <style>
+    body { text-align: center;
+   color: #222831;
+   Font-size: 25px;
+   font-family: tahoma;
+   background-color: #ffe8df;
+    }
+
+
+  .tab {
+    overflow: hidden;
+    text-align: right
+  }
+
+    ul { list-style-type:none; }
+  </style>
+
+<body>
+  <div class="tab">
+    <form action='/requests' method='get'>
+      <input type='submit' value='View Requests'>
+    </form>
+  </div>
+  <h1> MakersBnB </h1>
+  <hr>
+  <h2> book a space</h2><br>
+
+  <h1> Hi <%= @user %> </h1><br>
+
+  <form action='/list_space' method='get'>
+    <input type="submit" name="List a space" value="List a space">
+  </form>
+
+<ul>
+  <% @spaces.each do |space| %>
+  <li> <%= space.name %> <%= space.description %> <%= space.price %>
+  <form action='/check_availability' method ='post'>
+    <button name='space_name' type ='submit' value='<%= space.name %>'>Check Availability</button>
+  </form>
+  </li>
+  <% end %>
+</ul>
+</body>
